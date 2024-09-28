@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnosis Form</title>
+</head>
+<body>
+    <h1>Patient Diagnosis Form</h1>
+    <form action="/predict" method="POST">
+        {% for symptom in symptoms %}
+            <label for="{{ symptom }}">{{ symptom.replace('_', ' ').title() }}:</label><br>
+            <select id="{{ symptom }}" name="{{ symptom }}">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select><br><br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
